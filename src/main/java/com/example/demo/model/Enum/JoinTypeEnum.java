@@ -1,5 +1,10 @@
 package com.example.demo.model.Enum;
 
+import java.util.Arrays;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
 /**
  * 消息类型枚举
  */
@@ -16,6 +21,8 @@ public enum JoinTypeEnum {
 
     private final int code;
     private final String desc;
+    private static final Map<Integer, JoinTypeEnum> CODE_MAP = Arrays.stream(values())
+            .collect(Collectors.toUnmodifiableMap(JoinTypeEnum::getCode, Function.identity()));
 
     JoinTypeEnum(int code, String desc) {
         this.code = code;
@@ -34,11 +41,6 @@ public enum JoinTypeEnum {
      * 根据code获取枚举
      */
     public static JoinTypeEnum getByCode(int code) {
-        for (JoinTypeEnum value : values()) {
-            if (value.code == code) {
-                return value;
-            }
-        }
-        return null;
+        return CODE_MAP.get(code);
     }
 }
