@@ -1,0 +1,143 @@
+Date : 2026-03-21 16:51:54
+Directory : d:\111AAA\tet\demo\src
+Total : 85 files,  3145 codes, 236 comments, 675 blanks, all 4056 lines
+
+Languages
++-----------------+------------+------------+------------+------------+------------+
+| language        | files      | code       | comment    | blank      | total      |
++-----------------+------------+------------+------------+------------+------------+
+| Java            |         74 |      2,637 |        208 |        596 |      3,441 |
+| XML             |          8 |        364 |         23 |         56 |        443 |
+| HTML            |          1 |        129 |          0 |         13 |        142 |
+| Java Properties |          1 |         15 |          1 |          8 |         24 |
+| Lua             |          1 |          0 |          4 |          2 |          6 |
++-----------------+------------+------------+------------+------------+------------+
+
+Directories
++-----------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                | files      | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                   |         85 |      3,145 |        236 |        675 |      4,056 |
+| main                                                                                                |         84 |      3,132 |        236 |        667 |      4,035 |
+| main\java                                                                                           |         73 |      2,624 |        208 |        588 |      3,420 |
+| main\java\com                                                                                       |         73 |      2,624 |        208 |        588 |      3,420 |
+| main\java\com\example                                                                               |         73 |      2,624 |        208 |        588 |      3,420 |
+| main\java\com\example\demo                                                                          |         73 |      2,624 |        208 |        588 |      3,420 |
+| main\java\com\example\demo (Files)                                                                  |          1 |         18 |          0 |          5 |         23 |
+| main\java\com\example\demo\aop                                                                      |          2 |         65 |          9 |         12 |         86 |
+| main\java\com\example\demo\component                                                                |          3 |        118 |          8 |         31 |        157 |
+| main\java\com\example\demo\config                                                                   |          3 |         57 |          0 |         11 |         68 |
+| main\java\com\example\demo\controller                                                               |          8 |        377 |         37 |         78 |        492 |
+| main\java\com\example\demo\mapper                                                                   |          7 |        155 |         33 |         71 |        259 |
+| main\java\com\example\demo\model                                                                    |         23 |        379 |         66 |         85 |        530 |
+| main\java\com\example\demo\model (Files)                                                            |          8 |        158 |          3 |         27 |        188 |
+| main\java\com\example\demo\model\Dto                                                                |         13 |        171 |         39 |         44 |        254 |
+| main\java\com\example\demo\model\Enum                                                               |          2 |         50 |         24 |         14 |         88 |
+| main\java\com\example\demo\service                                                                  |         10 |        651 |         19 |        141 |        811 |
+| main\java\com\example\demo\util                                                                     |          6 |        279 |         14 |         61 |        354 |
+| main\java\com\example\demo\websocket                                                                |         10 |        525 |         22 |         93 |        640 |
+| main\java\com\example\demo\websocket (Files)                                                        |          1 |        226 |          8 |         36 |        270 |
+| main\java\com\example\demo\websocket\message                                                        |          5 |         85 |          0 |         18 |        103 |
+| main\java\com\example\demo\websocket\netty                                                          |          4 |        214 |         14 |         39 |        267 |
+| main\resources                                                                                      |         11 |        508 |         28 |         79 |        615 |
+| main\resources (Files)                                                                              |          3 |         57 |         16 |         15 |         88 |
+| main\resources\mapper                                                                               |          7 |        322 |         12 |         51 |        385 |
+| main\resources\static                                                                               |          1 |        129 |          0 |         13 |        142 |
+| test                                                                                                |          1 |         13 |          0 |          8 |         21 |
+| test\java                                                                                           |          1 |         13 |          0 |          8 |         21 |
+| test\java\com                                                                                       |          1 |         13 |          0 |          8 |         21 |
+| test\java\com\example                                                                               |          1 |         13 |          0 |          8 |         21 |
+| test\java\com\example\demo                                                                          |          1 |         13 |          0 |          8 |         21 |
++-----------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-----------------------------------------------------------------------------------------------------+-----------------+------------+------------+------------+------------+
+| filename                                                                                            | language        | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------------------------------+-----------------+------------+------------+------------+------------+
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\DemoApplication.java                              | Java            |         18 |          0 |          5 |         23 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\aop\GlobalInterceptor.java                        | Java            |          9 |          0 |          5 |         14 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\aop\GlobalInterceptorAspect.java                  | Java            |         56 |          9 |          7 |         72 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\component\GlobalExceptionHandler.java             | Java            |         14 |          6 |          3 |         23 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\component\JwtAuthenticationFilter.java            | Java            |         38 |          2 |          6 |         46 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\component\RedisComponent.java                     | Java            |         66 |          0 |         22 |         88 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\config\AppConfig.java                             | Java            |         10 |          0 |          2 |         12 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\config\CorsConfig.java                            | Java            |         16 |          0 |          3 |         19 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\config\RedissonConfig.java                        | Java            |         31 |          0 |          6 |         37 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\controller\AccountController.java                 | Java            |         32 |          0 |          6 |         38 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\controller\BlockListController.java               | Java            |         27 |         10 |          8 |         45 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\controller\CaptchaController.java                 | Java            |         18 |          0 |          3 |         21 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\controller\ContactController.java                 | Java            |         36 |         10 |          7 |         53 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\controller\ContactRequestController.java          | Java            |         59 |         16 |         11 |         86 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\controller\MeetingController.java                 | Java            |         87 |          1 |         20 |        108 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\controller\MessageController.java                 | Java            |         42 |          0 |         11 |         53 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\controller\UserInfoController.java                | Java            |         76 |          0 |         12 |         88 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\mapper\BlockListMapper.java                       | Java            |         13 |          0 |          6 |         19 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\mapper\ContactMapper.java                         | Java            |         31 |          0 |         10 |         41 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\mapper\ContactRequestMapper.java                  | Java            |         19 |          0 |         12 |         31 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\mapper\MeetingInfoMapper.java                     | Java            |         23 |          0 |          8 |         31 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\mapper\MeetingMemberMapper.java                   | Java            |         14 |          0 |          9 |         23 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\mapper\MessageInfoMapper.java                     | Java            |         39 |         33 |         17 |         89 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\mapper\UserInfoMapper.java                        | Java            |         16 |          0 |          9 |         25 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\model\BlockList.java                              | Java            |         15 |          0 |          2 |         17 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\model\Contact.java                                | Java            |         15 |          0 |          2 |         17 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\model\ContactRequest.java                         | Java            |         19 |          0 |          2 |         21 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\model\Dto\BlockListDTO.java                       | Java            |         14 |          0 |          2 |         16 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\model\Dto\CaptchaDTO.java                         | Java            |          7 |          0 |          3 |         10 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\model\Dto\ChannelDTO.java                         | Java            |          3 |          0 |          2 |          5 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\model\Dto\ContactDTO.java                         | Java            |         17 |          0 |          2 |         19 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\model\Dto\ContactRequestDTO.java                  | Java            |         16 |          0 |          2 |         18 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\model\Dto\LoginReqDTO.java                        | Java            |         21 |          1 |          2 |         24 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\model\Dto\MeetingInfoDTO.java                     | Java            |         16 |          0 |          4 |         20 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\model\Dto\MeetingMemberDTO.java                   | Java            |         14 |          0 |          3 |         17 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\model\Dto\MessageInfoDTO.java                     | Java            |         18 |         38 |         10 |         66 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\model\Dto\RegisterReqDTO.java                     | Java            |         10 |          0 |          2 |         12 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\model\Dto\TokenUserInfoDTO.java                   | Java            |          8 |          0 |          5 |         13 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\model\Dto\UserInfoDTO.java                        | Java            |         13 |          0 |          5 |         18 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\model\Dto\UserRespDTO.java                        | Java            |         14 |          0 |          2 |         16 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\model\Enum\JoinTypeEnum.java                      | Java            |         25 |         12 |          7 |         44 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\model\Enum\MessageTypeEnum.java                   | Java            |         25 |         12 |          7 |         44 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\model\MeetingInfo.java                            | Java            |         16 |          0 |          3 |         19 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\model\MeetingMember.java                          | Java            |         17 |          0 |          2 |         19 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\model\MessageInfo.java                            | Java            |         16 |          1 |          2 |         19 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\model\R.java                                      | Java            |         41 |          1 |         10 |         52 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\model\UserInfo.java                               | Java            |         19 |          1 |          4 |         24 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\service\AccountService.java                       | Java            |         90 |          0 |         16 |        106 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\service\BlockListService.java                     | Java            |         40 |          0 |         11 |         51 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\service\CaptchaService.java                       | Java            |         29 |          1 |          8 |         38 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\service\ContactRequestService.java                | Java            |        106 |          4 |         16 |        126 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\service\ContactService.java                       | Java            |         46 |          0 |         14 |         60 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\service\MeetingMemberService.java                 | Java            |         26 |          0 |          2 |         28 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\service\MeetingService.java                       | Java            |        160 |          9 |         31 |        200 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\service\MessageInfoService.java                   | Java            |         52 |          1 |         15 |         68 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\service\MessageService.java                       | Java            |         52 |          0 |         15 |         67 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\service\UserInfoService.java                      | Java            |         50 |          4 |         13 |         67 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\util\IdComponent.java                             | Java            |         12 |          0 |          5 |         17 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\util\JwtUtil.java                                 | Java            |         61 |          5 |          9 |         75 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\util\PasswordEncoderUtil.java                     | Java            |         13 |          5 |          5 |         23 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\util\RedisUtil.java                               | Java            |        156 |          4 |         34 |        194 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\util\UserContext.java                             | Java            |         14 |          0 |          4 |         18 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\util\UserUtil.java                                | Java            |         23 |          0 |          4 |         27 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\websocket\ChannelContextUtils.java                | Java            |        226 |          8 |         36 |        270 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\websocket\message\InitRun.java                    | Java            |         19 |          0 |          4 |         23 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\websocket\message\MessageHandler4Redis.java       | Java            |         26 |          0 |          4 |         30 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\websocket\message\MessageReviceHandler.java       | Java            |          4 |          0 |          3 |          7 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\websocket\message\MessageReviceHandler4Redis.java | Java            |         31 |          0 |          3 |         34 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\websocket\message\MessageSendHandler.java         | Java            |          5 |          0 |          4 |          9 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\websocket\netty\HandleTokenValidation.java        | Java            |         56 |          7 |          9 |         72 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\websocket\netty\HandlerHeartBeat.java             | Java            |         27 |          0 |          6 |         33 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\websocket\netty\HandlerWebSocket.java             | Java            |         62 |          1 |         14 |         77 |
+| d:\111AAA\tet\demo\src\main\java\com\example\demo\websocket\netty\NettyWebSocketStarters.java       | Java            |         69 |          6 |         10 |         85 |
+| d:\111AAA\tet\demo\src\main\resources\application.properties                                        | Java Properties |         15 |          1 |          8 |         24 |
+| d:\111AAA\tet\demo\src\main\resources\lock.lua                                                      | Lua             |          0 |          4 |          2 |          6 |
+| d:\111AAA\tet\demo\src\main\resources\logback-spring.xml                                            | XML             |         42 |         11 |          5 |         58 |
+| d:\111AAA\tet\demo\src\main\resources\mapper\BlockListMapper.xml                                    | XML             |         42 |          0 |          7 |         49 |
+| d:\111AAA\tet\demo\src\main\resources\mapper\ContactMapper.xml                                      | XML             |         38 |          5 |          9 |         52 |
+| d:\111AAA\tet\demo\src\main\resources\mapper\ContactRequestMapper.xml                               | XML             |         65 |          0 |         12 |         77 |
+| d:\111AAA\tet\demo\src\main\resources\mapper\MeetingInfoMapper.xml                                  | XML             |         56 |          6 |          7 |         69 |
+| d:\111AAA\tet\demo\src\main\resources\mapper\MeetingMemberMapper.xml                                | XML             |         24 |          0 |          7 |         31 |
+| d:\111AAA\tet\demo\src\main\resources\mapper\MessageInfoMapper.xml                                  | XML             |         34 |          1 |          1 |         36 |
+| d:\111AAA\tet\demo\src\main\resources\mapper\UserInfoMapper.xml                                     | XML             |         63 |          0 |          8 |         71 |
+| d:\111AAA\tet\demo\src\main\resources\static\test-auth.html                                         | HTML            |        129 |          0 |         13 |        142 |
+| d:\111AAA\tet\demo\src\test\java\com\example\demo\DemoApplicationTests.java                         | Java            |         13 |          0 |          8 |         21 |
+| Total                                                                                               |                 |      3,145 |        236 |        675 |      4,056 |
++-----------------------------------------------------------------------------------------------------+-----------------+------------+------------+------------+------------+

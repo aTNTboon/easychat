@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.ContactRequestMapper">
+
+    <resultMap id="ContactRequestResultMap" type="com.example.demo.model.ContactRequest">
+        <result property="fromUserId" column="from_user_id"/>
+        <result property="toUserId" column="to_user_id"/>
+        <result property="status" column="status"/>
+        <result property="email" column="email"/>
+        <result property="nickName" column="nick_name"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, from_user_id, to_user_id, status, created_at, updated_at
+    </sql>
+
+    <select id="selectById" resultMap="ContactRequestResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM contact_requests
+        WHERE id = #{id}
+    </select>
+
+    <insert id="insert" parameterType="com.example.demo.model.ContactRequest" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO contact_requests
+        (from_user_id, to_user_id, status, created_at, updated_at)
+        VALUES
+        (#{fromUserId}, #{toUserId}, #{status}, #{createdAt}, #{updatedAt})
+    </insert>
+
+    <update id="update" parameterType="com.example.demo.model.ContactRequest">
+        UPDATE contact_requests
+        SET
+            from_user_id = #{fromUserId},
+            to_user_id = #{toUserId},
+            status = #{status},
+            updated_at = #{updatedAt}
+        WHERE id = #{id}
+    </update>
+
+    <update id="updateStatus">
+        UPDATE contact_requests
+        SET
+            status = #{status},
+            updated_at = CURRENT_TIMESTAMP
+        WHERE id = #{id}
+    </update>
+
+    <delete id="delete">
+        DELETE FROM contact_requests
+        WHERE id = #{id}
+    </delete>
+
+    <select id="selectByFromUserId" resultMap="ContactRequestResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM contact_requests
+        WHERE from_user_id = #{fromUserId}
+    </select>
+
+
+    <select id="selectByToUserId" resultMap="ContactRequestResultMap">
+        SELECT cr.id, cr.from_user_id, cr.to_user_id, cr.status, cr.created_at, cr.updated_at,
+               u.email, u.nick_name
+        FROM contact_requests cr
+        LEFT JOIN user_info u ON cr.to_user_id = u.id
+        WHERE cr.to_user_id = #{toUserId}
+    </select>
+
+    <update id="updateByFromAndToUserId">
+        UPDATE contact_requests
+        SET
+            status = #{status},
+            updated_at = #{updatedAt}
+        WHERE from_user_id = #{fromUserId}
+        AND to_user_id = #{toUserId}
+    </update>
+</mapper>

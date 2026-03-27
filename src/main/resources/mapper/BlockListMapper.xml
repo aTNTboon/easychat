@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.BlockListMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.demo.model.BlockList">
+        <id column="id" property="id"/>
+        <result column="user_id" property="userId"/>
+        <result column="blocked_id" property="blockedId"/>
+        <result column="created_at" property="createdAt"/>
+        <result column="updated_at" property="updatedAt"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, user_id, blocked_id, created_at, updated_at
+    </sql>
+
+    <select id="selectById" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM block_list
+        WHERE id = #{id}
+    </select>
+
+    <insert id="insert" parameterType="com.example.demo.model.BlockList" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO block_list
+        (user_id, blocked_id, created_at, updated_at)
+        VALUES
+        (#{userId}, #{blockedId}, #{createdAt}, #{updatedAt})
+    </insert>
+
+    <update id="update" parameterType="com.example.demo.model.BlockList">
+        UPDATE block_list
+        SET
+            user_id = #{userId},
+            blocked_id = #{blockedId},
+            updated_at = #{updatedAt}
+        WHERE id = #{id}
+    </update>
+
+    <delete id="delete">
+        DELETE FROM block_list
+        WHERE id = #{id}
+    </delete>
+
+    <select id="selectAllByUserId" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM block_list
+        WHERE user_id = #{userId}
+    </select>
+</mapper>

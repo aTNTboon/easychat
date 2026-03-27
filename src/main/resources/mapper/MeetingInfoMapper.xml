@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.MeetingInfoMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.demo.model.MeetingInfo">
+        <id column="id" property="id"/>
+        <result column="meeting_no" property="meetingNo"/>
+        <result column="meeting_name" property="meetingName"/>
+        <result column="create_time" property="createTime"/>
+        <result column="create_user_id" property="createUserId"/>
+        <result column="join_type" property="joinType"/>
+        <result column="join_password" property="joinPassword"/>
+        <result column="start_time" property="startTime"/>
+        <result column="end_time" property="endTime"/>
+        <result column="status" property="status"/>
+    </resultMap>
+
+    <!-- 基础列列表：包含 id 和其他所有字段，方便复用 -->
+    <sql id="Base_Column_List">
+        id, meeting_no, meeting_name, create_time, create_user_id,
+        join_type, join_password, start_time, end_time, status
+    </sql>
+
+    <!-- 根据主键查询 -->
+    <select id="selectById" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM meeting_info
+        WHERE id = #{id}   <!-- 修正为 id -->
+    </select>
+
+    <!-- 新增会议（假设 id 自增） -->
+    <insert id="insert" parameterType="com.example.demo.model.MeetingInfo" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO meeting_info
+        (meeting_no, meeting_name, create_time, create_user_id,
+         join_type, join_password, start_time, end_time, status)
+        VALUES
+            (#{meetingNo}, #{meetingName}, #{createTime},
+             #{createUserId}, #{joinType}, #{joinPassword}, #{startTime},
+             #{endTime}, #{status})
+    </insert>
+
+    <!-- 更新会议信息（不更新主键） -->
+    <update id="update" parameterType="com.example.demo.model.MeetingInfo">
+        UPDATE meeting_info
+        SET
+            meeting_no = #{meetingNo},
+            meeting_name = #{meetingName},
+            create_time = #{createTime},
+            create_user_id = #{createUserId},
+            join_type = #{joinType},
+            join_password = #{joinPassword},
+            start_time = #{startTime},
+            end_time = #{endTime},
+            status = #{status}
+        WHERE id = #{id}
+    </update>
+
+    <!-- 删除会议 -->
+    <delete id="delete">
+        DELETE FROM meeting_info
+        WHERE id = #{id}
+    </delete>
+
+    <!-- 查询所有会议 -->
+    <select id="selectAll" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM meeting_info
+    </select>
+</mapper>
