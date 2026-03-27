@@ -37,7 +37,7 @@
          #{createTime}, #{lastLoginTime}, #{lastOffTime}, #{meetingNo})
     </insert>
 
-    <update id="update" parameterType="com.example.demo.model.UserInfo">
+    <update id="updateById" parameterType="com.example.demo.model.UserInfo">
         UPDATE user_info
         SET
             email = #{email},
@@ -61,5 +61,11 @@
         SELECT <include refid="Base_Column_List"/>
         FROM user_info
         WHERE email = #{email}
+    </select>
+
+    <select id="selectByNickNameLike" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM user_info
+        WHERE nick_name LIKE CONCAT('%', #{nickName}, '%')
     </select>
 </mapper>

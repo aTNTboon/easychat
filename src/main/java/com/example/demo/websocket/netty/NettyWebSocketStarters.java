@@ -2,6 +2,7 @@ package com.example.demo.websocket.netty;
 
 import com.example.demo.config.AppConfig;
 import com.example.demo.util.JwtUtil;
+import com.example.demo.websocket.ChannelContextUtils;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelInitializer;
@@ -31,6 +32,7 @@ public class NettyWebSocketStarters implements Runnable {
     private final AppConfig appConfig;
     private final HandlerWebSocket handlerWebSocket;
     private final HandleTokenValidation handleTokenValidation;
+
     private EventLoopGroup bossGroup = new NioEventLoopGroup();
     private EventLoopGroup workerGroup = new NioEventLoopGroup();
     @Override
@@ -54,18 +56,16 @@ public class NettyWebSocketStarters implements Runnable {
                              */
                             pipeline.addLast(new HttpObjectAggregator(64*1024));
 
-                            pipeline.addLast(new IdleStateHandler(60, 0, 0, TimeUnit.SECONDS));
+                            pipeline.addLast(new IdleStateHandler(120, 0, 0, TimeUnit.SECONDS));
                             pipeline.addLast(new HandlerHeartBeat());
                             pipeline.addLast(handleTokenValidation);
-                            //String websocketPath, String subprotocols, boolean allowExtensions,
-                            // int maxFrameSize, boolean allowMaskMismatch, boolean checkStartsWith,
-                            // long handshakeTimeoutMillis
                             pipeline.addLast(new WebSocketServerProtocolHandler("/ws",null,true, 6553, true, true,10000L));
                             pipeline.addLast(handlerWebSocket);
                         }
                     });
             Channel channel = bootstrap.bind(appConfig.getWsPort()).sync().channel();
             log.info("WebSocket Server started on port {}", appConfig.getWsPort());
+
             channel.closeFuture().sync();
         } catch (Exception e) {
             log.error("netty start error!", e);

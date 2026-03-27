@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import cn.hutool.captcha.CaptchaUtil;
+import cn.hutool.captcha.CircleCaptcha;
 import cn.hutool.captcha.LineCaptcha;
 import com.example.demo.model.Dto.CaptchaDTO;
 import com.example.demo.util.RedisUtil;
@@ -22,9 +23,10 @@ public class CaptchaService {
     private final RedisUtil redisUtil;
     public CaptchaDTO createCaptcha()throws RuntimeException {
         CaptchaDTO captchaDTO = new CaptchaDTO();
-        LineCaptcha lineCaptcha = CaptchaUtil.createLineCaptcha(200, 80, 4, 20);
+
+        CircleCaptcha lineCaptcha = CaptchaUtil.createCircleCaptcha(200, 80, 4, 20);
         // 2. 获取验证码的数字内容（用于后端验证，需存储到Session/Redis）
-        String captchaCode = lineCaptcha.getCode();
+        String captchaCode = lineCaptcha.getCode().toLowerCase();
         String captchaId = "captcha_" + UUID.randomUUID().toString();
         captchaDTO.setCaptchaId(captchaId);
         redisUtil.set(captchaId, captchaCode, 300);

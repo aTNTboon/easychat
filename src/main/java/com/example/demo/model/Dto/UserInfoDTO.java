@@ -3,14 +3,15 @@ package com.example.demo.model.Dto;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import lombok.Data;
-import java.time.LocalDateTime;
 
 @Data
-public class UserRespDTO {
+public class UserInfoDTO {
     @JsonSerialize(using = ToStringSerializer.class)
-    private Long userId;
-    private String email;
-    private String nickName;
-    private LocalDateTime lastLoginTime;
-    private String token;
+    Long userId;
+    String userName;
+    String avatarUrl;
+    String nickName;
+    String email;
 }
+
+

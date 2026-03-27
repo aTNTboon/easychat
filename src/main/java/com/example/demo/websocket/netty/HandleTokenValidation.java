@@ -1,14 +1,13 @@
 package com.example.demo.websocket.netty;
 
 import com.example.demo.util.JwtUtil;
+import com.example.demo.websocket.ChannelContextUtils;
+import com.example.demo.websocket.message.MessageSendHandler;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.handler.codec.http.FullHttpRequest;
 import io.netty.handler.codec.http.QueryStringDecoder;
-import io.netty.handler.codec.http.multipart.HttpPostRequestDecoder;
-import io.netty.handler.codec.http.multipart.InterfaceHttpData;
-import io.netty.handler.codec.http.multipart.Attribute;
 import io.netty.handler.codec.http.DefaultFullHttpResponse;
 import io.netty.handler.codec.http.HttpResponseStatus;
 import io.netty.handler.codec.http.HttpVersion;
@@ -25,7 +24,8 @@ import java.util.List;
 public class HandleTokenValidation extends SimpleChannelInboundHandler<FullHttpRequest> {
 
     private final JwtUtil jwtUtil;
-
+    private final ChannelContextUtils channelContextUtils;
+    private final MessageSendHandler messageSendHandler;
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, FullHttpRequest request) throws Exception {
         String token = null;
@@ -42,7 +42,6 @@ public class HandleTokenValidation extends SimpleChannelInboundHandler<FullHttpR
             sendForbiddenResponse(ctx);
             return;
         }
-
         String userId = jwtUtil.getUserIdFromToken(token);
         if(userId == null){
             sendForbiddenResponse(ctx);
@@ -50,11 +49,10 @@ public class HandleTokenValidation extends SimpleChannelInboundHandler<FullHttpR
         }
         log.info("userId={}正在验证websocket", userId);
         // 将userId放入请求属性中以便后续使用
-        request.headers().set("X-User-ID", userId);
+        request.headers().set(ctx.channel().id().toString(), userId);
         // token有效，继续处理请求
         ctx.fireChannelRead(request.retain());
-
-        //todo
+        channelContextUtils.addContext(userId,ctx.channel());
     }
 
     /**

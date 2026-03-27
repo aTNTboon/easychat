@@ -1,15 +1,19 @@
 package com.example.demo.controller;
 
+import com.example.demo.model.Dto.UserInfoDTO;
+import com.example.demo.model.Dto.UserRespDTO;
 import com.example.demo.model.R;
 import com.example.demo.model.UserInfo;
 import com.example.demo.service.UserInfoService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Slf4j
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/api/user")
 public class UserInfoController {
     @Autowired
     private UserInfoService userInfoService;
@@ -23,6 +27,19 @@ public class UserInfoController {
             return R.error("创建用户失败: " + e.getMessage());
         }
     }
+    @GetMapping("/name/{nickname}")
+    public R<List<UserInfoDTO>> getUserByNickname(@PathVariable String nickname) {
+        List<UserInfoDTO> result = userInfoService.getUserByNickname(nickname);
+        return R.success(result);
+    }
+
+
+
+    @GetMapping("/email/{email}")
+    public R<UserInfo> getUserByEmail(@PathVariable String email) {
+        userInfoService.getUserByEmail(email);
+        return R.success(userInfoService.getUserByEmail(email));
+    }
 
     @GetMapping
     public R<List<UserInfo>> getAllUsers() {
@@ -35,9 +52,9 @@ public class UserInfoController {
     }
 
     @GetMapping("/{userId}")
-    public R<UserInfo> getUserById(@PathVariable String userId) {
+    public R<UserInfoDTO> getUserById(@PathVariable String userId) {
         try {
-            UserInfo user = userInfoService.getUserById(userId);
+            UserInfoDTO user = userInfoService.getUserById(Long.valueOf(userId));
             if (user != null) {
                 return R.success(user);
             }
@@ -47,10 +64,10 @@ public class UserInfoController {
         }
     }
 
-    @PutMapping("/{userId}")
+    @PostMapping("/update/{userId}")
     public R<UserInfo> updateUser(@PathVariable String userId, @RequestBody UserInfo userInfo) {
         try {
-            userInfo.setUserId(userId);
+            userInfo.setUserId(Long.valueOf(userId));
             UserInfo updatedUser = userInfoService.updateUser(userInfo);
             return R.success(updatedUser);
         } catch (Exception e) {

@@ -1,7 +1,10 @@
 package com.example.demo.util;
 
+import com.example.demo.component.RedisComponent;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
+import io.micrometer.common.util.StringUtils;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -10,6 +13,7 @@ import java.security.Key;
 import java.util.Date;
 @Slf4j
 @Component
+@RequiredArgsConstructor
 public class JwtUtil {
 
     @Value("${jwt.secret}")  // 从配置文件读取密钥
@@ -17,7 +21,7 @@ public class JwtUtil {
 
     @Value("${jwt.expiration}") // 过期时间（毫秒）
     private Long expiration;
-
+    private final RedisComponent redisComponent;
     // 生成签名密钥
     private Key getSigningKey() {
         return Keys.hmacShaKeyFor(secret.getBytes());
@@ -39,11 +43,16 @@ public class JwtUtil {
     // 从 Token 中解析用户id
     public String getUserIdFromToken(String token) {
         try {
+            String userId=redisComponent.getUserIdFromToken(token);
+            if(StringUtils.isNotEmpty(userId)){
+                return userId;
+            }
             Claims claims = Jwts.parserBuilder()
                     .setSigningKey(getSigningKey())
                     .build()
                     .parseClaimsJws(token)
                     .getBody();
+            redisComponent.setTokenByUserId(userId,token);
             log.info("Parsed JWT claims: {}", claims);
             return claims.getSubject();
         } catch (Exception e) {
